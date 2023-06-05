@@ -1,5 +1,8 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: 'https://back-end-jhonfinance.onrender.com'
+    baseURL: process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3333/api/' // URL do backend local
+        : 'https://finance.johncode.tech/api/' // URL do backend de produção
 });
+
